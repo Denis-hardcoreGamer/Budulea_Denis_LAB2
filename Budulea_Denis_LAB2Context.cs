@@ -1,6 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using Budulea_Denis_LAB2.Models;
 
-public class Budulea_Denis_LAB2Context(DbContextOptions<Budulea_Denis_LAB2Context> options) : DbContext(options)
+public class Budulea_Denis_LAB2Context : DbContext
 {
-    public DbSet<Budulea_Denis_LAB2.Models.Book> Book { get; set; } = default!;
+    public Budulea_Denis_LAB2Context(DbContextOptions<Budulea_Denis_LAB2Context> options)
+        : base(options)
+    {
+    }
+
+    public DbSet<Book> Book { get; set; } = default!;
+    public DbSet<Publisher> Publisher { get; set; } = default!;
 }
