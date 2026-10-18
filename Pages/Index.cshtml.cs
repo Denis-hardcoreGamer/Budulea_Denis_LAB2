@@ -18,15 +18,11 @@ namespace Budulea_Denis_LAB2.Pages
         // Expose a list of books to the page. The view expects an indexable collection and to iterate over it.
         public IList<Book> Book { get; set; } = new List<Book>();
 
-        public void OnGet()
-        {
-            // Placeholder: the list can be populated from a DbContext in a later change.
-        }
         public async Task OnGetAsync()
         {
             Book = await _context.Book
-            .Include(b => b.Publisher)
-            .ToListAsync();
+                .Include(b => b.Publisher)
+                .ToListAsync();
         }
     }
 }
