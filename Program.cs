@@ -1,3 +1,4 @@
+using Budulea_Denis_LAB2.Data;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Budulea_Denis_LAB2Context") ?? throw new InvalidOperationException("Connection string 'Budulea_Denis_LAB2Context' not found.");

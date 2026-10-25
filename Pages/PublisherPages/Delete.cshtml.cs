@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Budulea_Denis_LAB2.Models;
+using Budulea_Denis_LAB2.Data;
 
 namespace Budulea_Denis_LAB2.Pages.PublisherPages;
 

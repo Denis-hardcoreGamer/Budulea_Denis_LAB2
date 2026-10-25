@@ -1,14 +1,17 @@
+using Budulea_Denis_LAB2.Data;
 using Budulea_Denis_LAB2.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
 
 namespace Budulea_Denis_LAB2.Pages.BookPages;
 
 public class CreateModel : BookCategoriesPageModel
 {
     private readonly Budulea_Denis_LAB2Context _context;
+    private IEnumerable authorList;
 
     public CreateModel(Budulea_Denis_LAB2Context context)
     {

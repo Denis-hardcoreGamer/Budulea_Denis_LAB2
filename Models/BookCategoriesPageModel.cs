@@ -6,7 +6,7 @@ namespace Budulea_Denis_LAB2.Models
     public class BookCategoriesPageModel : PageModel
     {
         public List<AssignedCategoryData> AssignedCategoryDataList;
-        public void PopulateAssignedCategoryData(Nume_Pren_Lab2Context context,
+        public void PopulateAssignedCategoryData(Budulea_Denis_LAB2Context context,
         Book book)
         {
             var allCategories = context.Category;
@@ -23,7 +23,7 @@ namespace Budulea_Denis_LAB2.Models
                 });
             }
         }
-        public void UpdateBookCategories(Nume_Pren_Lab2Context context,
+        public void UpdateBookCategories(Budulea_Denis_LAB2Context context,
         string[] selectedCategories, Book bookToUpdate)
         {
             if (selectedCategories == null)
@@ -36,8 +36,7 @@ namespace Budulea_Denis_LAB2.Models
             (bookToUpdate.BookCategories.Select(c => c.Category.ID));
             foreach (var cat in context.Category)
             {
-                CommentHighlight
-            if (selectedCategoriesHS.Contains(cat.ID.ToString()))
+                if (selectedCategoriesHS.Contains(cat.ID.ToString()))
                 {
                     if (!bookCategories.Contains(cat.ID))
                     {
@@ -62,4 +61,5 @@ namespace Budulea_Denis_LAB2.Models
                 }
             }
         }
+    }
 }

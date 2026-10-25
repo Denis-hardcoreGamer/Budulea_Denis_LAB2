@@ -1,3 +1,4 @@
+using Budulea_Denis_LAB2.Data;
 using Budulea_Denis_LAB2.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -81,7 +82,7 @@ selectedCategories)
         PopulateAssignedCategoryData(_context, bookToUpdate);
         return Page();
     }
-}
+
 
 
 
