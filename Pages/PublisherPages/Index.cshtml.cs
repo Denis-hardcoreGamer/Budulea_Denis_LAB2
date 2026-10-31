@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Budulea_Denis_LAB2.Models;
+using Budulea_Denis_LAB2.Models.ViewModels;
 using Budulea_Denis_LAB2.Data;
 
 namespace Budulea_Denis_LAB2.Pages.PublisherPages;
@@ -15,10 +15,24 @@ public class IndexModel : PageModel
         _context = context;
     }
 
-    public IList<Publisher> Publisher { get; set; } = default!;
+    public PublisherIndexData PublisherData { get; set; } = default!;
+    public int PublisherID { get; set; }
 
-    public async Task OnGetAsync()
+    public async Task OnGetAsync(int? id)
     {
-        Publisher = await _context.Publisher.ToListAsync();
+        PublisherData = new PublisherIndexData();
+        PublisherData.Publishers = await _context.Publisher
+            .Include(i => i.Books)
+                .ThenInclude(c => c.Author)
+            .OrderBy(i => i.PublisherName)
+            .ToListAsync();
+
+        if (id != null)
+        {
+            PublisherID = id.Value;
+            Publisher publisher = PublisherData.Publishers
+                .Single(i => i.ID == id.Value);
+            PublisherData.Books = publisher.Books;
+        }
     }
 }
