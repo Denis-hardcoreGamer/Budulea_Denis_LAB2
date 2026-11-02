@@ -20,6 +20,8 @@ namespace Budulea_Denis_LAB2.Data
 {
     public class Budulea_Denis_LAB2Context : DbContext
     {
+        public DbSet<Budulea_Denis_LAB2.Models.Borrowing> Borrowing { get; set; } = default!;
+        public DbSet<Budulea_Denis_LAB2.Models.Member> Member { get; set; } = default!;
         public Budulea_Denis_LAB2Context(DbContextOptions<Budulea_Denis_LAB2Context> options)
             : base(options)
         {
